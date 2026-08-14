@@ -12,14 +12,20 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        // 剥离 context-path（如 /efmp-job），使白名单判断不受 server.servlet.context-path 配置影响
+        String contextPath = request.getContextPath();
         String requestURI = request.getRequestURI();
-        
+        String path = (contextPath != null && !contextPath.isEmpty() && requestURI.startsWith(contextPath))
+                ? requestURI.substring(contextPath.length())
+                : requestURI;
+
         // 允许访问的路径
-        if (requestURI.startsWith("/demo/") || 
-            requestURI.equals("/api/auth/login") || 
-            requestURI.equals("/api/auth/check") ||
-            requestURI.equals("/login") ||
-            requestURI.equals("/")) {
+        if (path.startsWith("/demo/") ||
+            path.equals("/api/auth/login") ||
+            path.equals("/api/auth/check") ||
+            path.equals("/login") ||
+            path.isEmpty() ||
+            path.equals("/")) {
             return true;
         }
         

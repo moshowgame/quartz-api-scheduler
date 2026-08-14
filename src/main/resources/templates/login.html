@@ -120,6 +120,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script th:inline="javascript">
+        // context-path 自适应：由后端注入当前 context path（如 /efmp-job；未配置则为空串）
+        window.CONTEXT_PATH = /*[[${contextPath}]]*/ '';
+        // 为所有 /api/ 开头的 axios 请求自动补上 context path，使接口路径自适应 server.servlet.context-path
+        axios.interceptors.request.use(function (config) {
+            if (config.url && config.url.indexOf('/api/') === 0) {
+                config.url = window.CONTEXT_PATH + config.url;
+            }
+            return config;
+        });
+    </script>
     <script>
         const { createApp } = Vue;
 
@@ -144,7 +155,7 @@
                         
                         if (response.data.success) {
                             // 登录成功，跳转到主页
-                            window.location.href = '/';
+                            window.location.href = window.CONTEXT_PATH + '/';
                         } else {
                             this.errorMessage = response.data.message || '登录失败';
                         }
@@ -164,7 +175,7 @@
                 // 检查是否已经登录
                 axios.get('/api/auth/check').then(response => {
                     if (response.data.authenticated) {
-                        window.location.href = '/';
+                        window.location.href = window.CONTEXT_PATH + '/';
                     }
                 }).catch(() => {
                     // 忽略检查错误

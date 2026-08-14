@@ -39,7 +39,8 @@ export default defineConfig({
     cors: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        // 后端地址；若后端配置了 context-path（如 /efmp-job），可设 VITE_API_TARGET=http://localhost:8080/efmp-job
+        target: process.env.VITE_API_TARGET || 'http://localhost:8080',
         changeOrigin: true,
         secure: false
       }

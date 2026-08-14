@@ -22,18 +22,18 @@
                     <a class="nav-link" href="#" @click="showStatistics">📈 数据统计</a>
                 </div>
                 <div class="navbar-nav align-items-center">
-                    <!-- 主题切换器 -->
+                    <!-- 主题切换器（下拉选择） -->
                     <div class="theme-switcher d-flex me-3">
-                        <button class="theme-btn me-2" 
-                                :class="{ 'active': currentTheme === 'modern' }"
-                                @click="switchTheme('modern')">
-                            🖥️ 现代化
-                        </button>
-                        <button class="theme-btn" 
-                                :class="{ 'active': currentTheme === 'mario' }"
-                                @click="switchTheme('mario')">
-                            🍄 马里奥
-                        </button>
+                        <span class="theme-label me-2" title="切换主题">🎨</span>
+                        <select class="theme-select" :value="currentTheme" @change="switchTheme($event.target.value)" aria-label="切换主题">
+                            <option value="modern">🖥️ 现代化</option>
+                            <option value="minimal">◻️ 极简风</option>
+                            <option value="ocean">🌊 海洋蓝</option>
+                            <option value="emerald">💎 翡翠绿</option>
+                            <option value="sunset">🌅 落日橙</option>
+                            <option value="night">🌙 暗夜</option>
+                            <option value="mario">🍄 马里奥</option>
+                        </select>
                     </div>
                     <span class="navbar-text me-3">👤 {{ currentUser }}</span>
                     <a class="nav-link" href="#" @click="logout">🚪 退出</a>
@@ -1073,11 +1073,16 @@
                 // 主题切换方法
                 switchTheme(theme) {
                     console.log('切换主题到:', theme);
+                    // 校验主题是否合法，避免无效值导致页面失去样式
+                    const validThemes = ['modern', 'minimal', 'ocean', 'emerald', 'sunset', 'night', 'mario'];
+                    if (!validThemes.includes(theme)) {
+                        theme = 'modern';
+                    }
                     this.currentTheme = theme;
                     document.documentElement.setAttribute('data-theme', theme);
                     localStorage.setItem('preferred-theme', theme);
                     console.log('当前data-theme属性:', document.documentElement.getAttribute('data-theme'));
-                    
+
                     // 更新Bootstrap组件样式
                     this.$nextTick(() => {
                         // 重新初始化模态框等组件
@@ -1105,7 +1110,8 @@
                     // 从localStorage获取用户偏好主题
                     const savedTheme = localStorage.getItem('preferred-theme');
                     console.log('从localStorage获取的主题:', savedTheme);
-                    if (savedTheme) {
+                    const validThemes = ['modern', 'minimal', 'ocean', 'emerald', 'sunset', 'night', 'mario'];
+                    if (savedTheme && validThemes.includes(savedTheme)) {
                         this.currentTheme = savedTheme;
                     }
                     document.documentElement.setAttribute('data-theme', this.currentTheme);

@@ -146,10 +146,11 @@ data() {
 }
 ```
 
-4. （可选）如需复用现代化/极简风的基础设计样式（圆角卡片、渐变按钮等），
-   将新主题加入`themes.css`中对应的共享选择器：
+4. （可选）如需复用现代化/极简风等浅色主题的基础设计样式（圆角卡片、渐变按钮等），
+   将新主题加入`themes.css`中对应的共享选择器（注意使用`:is()`包裹主题组，
+   避免逗号分隔导致前面的裸选择器误命中根元素）：
 ```css
-[data-theme="modern"], [data-theme="minimal"], [data-theme="your-theme"] .card {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="your-theme"]) .card {
     /* 基础卡片样式 */
 }
 ```

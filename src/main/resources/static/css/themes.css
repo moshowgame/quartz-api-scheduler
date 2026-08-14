@@ -411,7 +411,7 @@
 }
 
 /* 通用样式重写 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] body {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) body {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -427,7 +427,7 @@
 }
 
 /* 导航栏样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .navbar {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .navbar {
     background: var(--gradient-primary) !important;
     box-shadow: var(--shadow-lg);
     border: none;
@@ -457,7 +457,7 @@
 }
 
 /* 卡片样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .card {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .card {
     border: none;
     border-radius: 12px;
     box-shadow: var(--shadow);
@@ -465,7 +465,7 @@
     background: var(--bg-card);
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .card:hover {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -491,19 +491,19 @@
 }
 
 /* 按钮样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .btn {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .btn {
     border-radius: 8px;
     font-weight: 500;
     transition: all 0.2s ease;
     border: none;
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .btn:hover {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .btn:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow);
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .btn-primary {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .btn-primary {
     background: var(--gradient-primary);
     border: none;
 }
@@ -533,12 +533,12 @@
 }
 
 /* 表格样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .table {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .table {
     border-collapse: separate;
     border-spacing: 0;
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .table th {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .table th {
     background: var(--bg-secondary);
     font-weight: 600;
     color: var(--text-primary);
@@ -556,7 +556,7 @@
 }
 
 /* 徽章样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .badge {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .badge {
     border-radius: 20px;
     font-weight: 500;
     padding: 6px 12px;
@@ -571,15 +571,15 @@
 }
 
 /* 输入框样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .form-control,
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .form-select {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .form-control,
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .form-select {
     border-radius: 8px;
     border: 1px solid var(--border-color);
     transition: all 0.2s ease;
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .form-control:focus,
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .form-select:focus {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .form-control:focus,
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .form-select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
@@ -598,14 +598,14 @@
 }
 
 /* 分页样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .pagination .page-link {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .pagination .page-link {
     border-radius: 8px;
     margin: 0 2px;
     border: 1px solid var(--border-color);
     transition: all 0.2s ease;
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .pagination .page-link:hover {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .pagination .page-link:hover {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
@@ -620,7 +620,7 @@
 }
 
 /* 模态框样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .modal-content {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .modal-content {
     border-radius: 12px;
     border: none;
     box-shadow: var(--shadow-lg);
@@ -633,7 +633,7 @@
 }
 
 /* 警告框样式 */
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .alert {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .alert {
     border-radius: 8px;
     border: none;
 }
@@ -705,7 +705,7 @@
     transition: all 0.2s ease;
 }
 
-[data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"] .task-card:hover {
+:is([data-theme="modern"], [data-theme="minimal"], [data-theme="ocean"], [data-theme="emerald"], [data-theme="sunset"]) .task-card:hover {
     box-shadow: var(--shadow);
     transform: translateY(-2px);
 }
